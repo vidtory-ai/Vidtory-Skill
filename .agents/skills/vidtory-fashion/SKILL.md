@@ -66,7 +66,8 @@ Chỉ cần thêm tham số `--soulId model_asian_lily`. Hệ thống sẽ tự 
 
 ### 1. Virtual Try-On (Thử đồ ảo / Mặc thử trang phục)
 *   **Template**: `"Fashion model photography of model wearing [product-description], [style-archetype], [garment-fit-preservation], posing elegantly in a [setting], soft natural sunlight, fashion magazine cover style, high-end editorial"`
-*   **Chiến lược Batching (Đốt 4-8 Token)**: Sinh song song 6-8 người mẫu thuộc các sắc tộc khác nhau (Châu Á, Châu Âu, Da màu) hoặc ở các bối cảnh khác nhau mặc thử chiếc áo đó để tối đa hóa lựa chọn hình ảnh chiến dịch.
+*   **Chiến lược Sinh ảnh Song song (Parallel Batching)**: Khởi tạo đồng thời 6-8 yêu cầu sinh ảnh với các sắc tộc khác nhau (Châu Á, Châu Âu, Da màu) hoặc ở các bối cảnh khác nhau mặc thử trang phục đó, giúp khách hàng nhận được trọn bộ sưu tập ảnh so sánh lập tức mà không phải chờ đợi lâu.
+
 
 ### 2. Catwalk & Runway Motion Video (Sinh video người mẫu động)
 *   **Template**: `"High-end fashion runway catwalk video, model walking towards the camera, dramatic fashion show spotlights, soft bokeh, [veo-physics-keywords], movement of fabric is fluid and realistic"`

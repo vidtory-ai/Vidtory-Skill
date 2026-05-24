@@ -5,7 +5,7 @@ description: |
   Generate brand materials and service advertising visuals via Vidtory BAPI.
   Specialized in packaging, logos, corporate banners, and service conceptual art.
   Uses gemini-3.1-flash-image-preview for high-fidelity text/vectors.
-  Optimized for batch token burning (generating 4-8 variants concurrently).
+  Optimized for parallel execution to generate 4-8 design concepts concurrently.
 argument-hint: "generate-image --prompt <prompt> [--aspectRatio <ratio>] [--resolution <1K|2K|4K>]"
 allowed-tools: Bash
 ---
@@ -72,7 +72,7 @@ Chúng ta sử dụng mô hình **`gemini-3.1-flash-image-preview`** vì khả n
 
 ## Hướng Dẫn Gọi CLI (Ví dụ tạo 4 Concept Bao bì Nước hoa)
 
-Để tối ưu hóa thời gian và đốt token, hãy chạy đồng thời 4 job trong nền:
+Để tối ưu hóa thời gian chờ đợi cho khách hàng thông qua cơ chế xử lý song song, hãy chạy đồng thời 4 job trong nền:
 
 ```bash
 # Concept A: Tông màu trầm, sang trọng

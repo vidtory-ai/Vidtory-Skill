@@ -211,7 +211,8 @@ async function main() {
   const jobs = [];
 
   // Bước 1: Gọi đồng thời 24 API requests (12 audio, 12 video)
-  console.log('\n[1/4] Gửi 24 yêu cầu sinh Audio & Video song song (Token Burning)...');
+  console.log('\n[1/4] Gửi 24 yêu cầu sinh Audio & Video song song để tối ưu thời gian xử lý...');
+
   for (const scene of storyboard) {
     const audioPromise = requestAudio(scene).then(jobId => ({ scene: scene.scene, type: 'audio', jobId }));
     const videoPromise = requestVideo(scene, chars).then(jobId => ({ scene: scene.scene, type: 'video', jobId }));

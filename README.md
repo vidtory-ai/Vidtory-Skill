@@ -4,11 +4,12 @@ Hệ thống **Vidtory Creative AI Skills** là bộ kỹ năng (Skills) chuyên
 
 ---
 
-## 🚀 Triết Lý Tiêu Thụ Token (Token Burning Strategy)
+## 🚀 Cơ Chế Xử Lý Song Song Tối Ưu Thời Gian (Parallel Processing Strategy)
 
-Thay vì đi theo hướng tối giản tài nguyên hay huấn luyện LoRA/Model tùy chỉnh tốn kém, Vidtory Creative Skills tận dụng tối đa lợi thế cốt lõi của Vidtory BAPI: **Tốc độ tạo ảnh/video nhanh và chi phí API cực tốt**. 
+Thay vì đi theo hướng tối giản tài nguyên hay huấn luyện LoRA/Model tùy chỉnh tốn kém, Vidtory Creative Skills tận dụng tối đa lợi thế cốt lõi của Vidtory BAPI: **Tốc độ tạo ảnh/video nhanh và chi phí API tối ưu**.
 
-Hệ thống được thiết kế để **đốt token tối đa (Token Burning)** bằng cách gửi hàng loạt request song song (batching) để tạo ra nhiều phương án thiết kế (concept), nhiều góc chụp, nhiều người mẫu khác nhau cùng một lúc, giúp khách hàng có sự lựa chọn đa dạng nhất chỉ trong vài giây.
+Hệ thống hoạt động theo cơ chế **gửi hàng loạt yêu cầu song song (Parallel Batching)** để tạo ra nhiều phương án thiết kế (concepts), nhiều góc chụp, hoặc nhiều sắc tộc/giới tính người mẫu khác nhau **trong cùng một thời điểm**. Nhờ vậy, khách hàng có ngay một bộ sưu tập tùy chọn phong phú để so sánh và lựa chọn chỉ sau một lần đợi ngắn ngủi (dưới 10-15 giây), rút ngắn chu trình phản hồi thử-sai (trial-and-error) so với cách sinh tuần tự truyền thống.
+
 
 ---
 
