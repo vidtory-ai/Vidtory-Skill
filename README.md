@@ -6,9 +6,9 @@ Hệ thống **Vidtory Creative AI Skills** là bộ kỹ năng (Skills) chuyên
 
 ## 🚀 Cơ Chế Xử Lý Song Song Tối Ưu Thời Gian (Parallel Processing Strategy)
 
-Thay vì đi theo hướng tối giản tài nguyên hay huấn luyện LoRA/Model tùy chỉnh tốn kém, Vidtory Creative Skills tận dụng tối đa lợi thế cốt lõi của Vidtory BAPI: **Tốc độ tạo ảnh/video nhanh và chi phí API tối ưu**.
+Để mang lại trải nghiệm tốt nhất và tối ưu hóa thời gian chờ đợi của khách hàng, Vidtory Creative Skills áp dụng cơ chế **gửi hàng loạt yêu cầu song song (Parallel Request/Batching)**. 
 
-Hệ thống hoạt động theo cơ chế **gửi hàng loạt yêu cầu song song (Parallel Batching)** để tạo ra nhiều phương án thiết kế (concepts), nhiều góc chụp, hoặc nhiều sắc tộc/giới tính người mẫu khác nhau **trong cùng một thời điểm**. Nhờ vậy, khách hàng có ngay một bộ sưu tập tùy chọn phong phú để so sánh và lựa chọn chỉ sau một lần đợi ngắn ngủi (dưới 10-15 giây), rút ngắn chu trình phản hồi thử-sai (trial-and-error) so với cách sinh tuần tự truyền thống.
+Thay vì sinh tuần tự từng ảnh hoặc video khiến quy trình thử-sai (trial-and-error) kéo dài và gây sốt ruột cho người dùng, cơ chế này khởi tạo đồng thời nhiều phương án thiết kế (concepts), nhiều góc chụp, góc quay, hoặc các sắc tộc/giới tính người mẫu khác nhau trong cùng một thời điểm. Chỉ sau một lần đợi duy nhất (dưới 10-15 giây), khách hàng sẽ có ngay một bộ sưu tập tùy chọn phong phú, chất lượng cao để so sánh và lựa chọn. Cách tiếp cận này giúp tối ưu hóa triệt để hiệu năng của Vidtory BAPI, đảm bảo khách hàng luôn nhận được giá trị tối đa và cảm thấy an tâm về chi phí sử dụng tài nguyên một cách minh bạch, hiệu quả nhất.
 
 
 ---
@@ -102,7 +102,7 @@ node .agents/skills/vidtory-cli.js generate-video \
 Để sản xuất các video marketing dài có giá trị thương mại lớn (TVC, video unboxing 60s có lồng tiếng thuyết minh và nhạc nền), hệ thống sử dụng một script điều khiển tự động (`scratch/generate-tvc-60s.js`):
 
 1.  **Storyboard Planning**: Lên kịch bản gồm 12 phân cảnh ngắn (mỗi cảnh 5 giây).
-2.  **Parallel Burning**: Gửi đồng thời 24 API calls (12 video, 12 audio thoại) trong nền.
+2.  **Parallel Requests**: Gửi đồng thời 24 API calls (12 video, 12 audio thoại) trong nền để tối ưu hóa thời gian xử lý.
 3.  **Timing Sync Engine**: Tự động đo đạc độ dài âm thanh và điều chỉnh khớp nối thời lượng video.
 4.  **FFmpeg Assembly**: 
     *   Mux (ghép) audio + video của từng cảnh lẻ.
