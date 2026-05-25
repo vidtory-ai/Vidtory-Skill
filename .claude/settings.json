@@ -1,0 +1,10 @@
+{
+  "sandbox": {
+    "enabled": true,
+    "allowedDomains": [
+      "bapi.vidtory.net",
+      "b2b.vidtory.net",
+      "www.soundhelix.com"
+    ]
+  }
+}

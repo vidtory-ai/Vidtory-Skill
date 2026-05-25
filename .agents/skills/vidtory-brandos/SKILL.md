@@ -76,22 +76,22 @@ Chúng ta sử dụng mô hình **`gemini-3.1-flash-image-preview`** vì khả n
 
 ```bash
 # Concept A: Tông màu trầm, sang trọng
-node /Users/brianle/Documents/Code/Vidtory/Vidtory-Skill/.agents/skills/vidtory-cli.js generate-image \
+node vidtory-cli.js generate-image \
   --prompt "Professional product packaging design of a luxury perfume bottle, minimalist gold accents, featuring logo text 'AURA' on label, dark marble background, studio lighting" \
   --aspectRatio 1:1 --resolution 2K &
 
 # Concept B: Tông màu sáng, tự nhiên
-node /Users/brianle/Documents/Code/Vidtory/Vidtory-Skill/.agents/skills/vidtory-cli.js generate-image \
+node vidtory-cli.js generate-image \
   --prompt "Professional product packaging design of a luxury perfume bottle, wooden cap, organic shapes, featuring logo text 'AURA' on label, bright sunlit stone background" \
   --aspectRatio 1:1 --resolution 2K &
 
 # Concept C: Phong cách tối giản, hiện đại
-node /Users/brianle/Documents/Code/Vidtory/Vidtory-Skill/.agents/skills/vidtory-cli.js generate-image \
+node vidtory-cli.js generate-image \
   --prompt "Professional product packaging design of a luxury perfume bottle, clean glass, frosted finish, featuring logo text 'AURA', sage green solid backdrop, soft studio lighting" \
   --aspectRatio 1:1 --resolution 2K &
 
 # Concept D: Phong cách nghệ thuật, siêu thực
-node /Users/brianle/Documents/Code/Vidtory/Vidtory-Skill/.agents/skills/vidtory-cli.js generate-image \
+node vidtory-cli.js generate-image \
   --prompt "Conceptual design of a luxury perfume bottle, levitating over liquid gold ripples, dramatic high contrast studio lighting, logo text 'AURA'" \
   --aspectRatio 1:1 --resolution 2K &
 ```
