@@ -106,3 +106,19 @@ node vidtory-cli.js generate-image \
   --prompt "Dramatic studio lighting fashion photography, high contrast shadows, elegant pose, dark grey texture background" \
   --refImageUrl ./blue_blazer.png --soulId "model_asian_lily" --aspectRatio 3:4 &
 ```
+
+---
+
+## 🌐 Tài Liệu Tích Hợp API BAPI Trực Tiếp (Direct API Reference)
+
+Nếu mô hình cần thực hiện các cuộc gọi API HTTP trực tiếp thay vì thông qua CLI (ví dụ: dùng `curl` hoặc các thư viện request), bắt buộc tuân thủ:
+*   **Base URL**: `https://bapi.vidtory.net`
+*   **Header Xác Thực**: `x-api-key: <API_KEY>` (Tuyệt đối **KHÔNG** sử dụng `Authorization: Bearer`).
+*   **API Upload**: `POST /media/upload` (Tuyệt đối **KHÔNG** dùng `/upload`).
+*   **Ví dụ Curl**:
+    ```bash
+    curl -X POST "https://bapi.vidtory.net/media/upload" \
+      -H "x-api-key: $VIDTORY_API_KEY" \
+      -F "file=@./image.png"
+    ```
+

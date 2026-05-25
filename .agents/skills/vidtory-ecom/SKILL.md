@@ -182,3 +182,19 @@ Các định dạng ảnh quảng cáo có cấu trúc đặc trưng để giữ
           --refImageEndUrl ./screen_clean.png \
           --aspectRatio 9:16 --duration 5
         ```
+
+---
+
+## 🌐 Tài Liệu Tích Hợp API BAPI Trực Tiếp (Direct API Reference)
+
+Nếu mô hình cần thực hiện các cuộc gọi API HTTP trực tiếp thay vì thông qua CLI (ví dụ: dùng `curl` hoặc các thư viện request), bắt buộc tuân thủ:
+*   **Base URL**: `https://bapi.vidtory.net`
+*   **Header Xác Thực**: `x-api-key: <API_KEY>` (Tuyệt đối **KHÔNG** sử dụng `Authorization: Bearer`).
+*   **API Upload**: `POST /media/upload` (Tuyệt đối **KHÔNG** dùng `/upload`).
+*   **Ví dụ Curl**:
+    ```bash
+    curl -X POST "https://bapi.vidtory.net/media/upload" \
+      -H "x-api-key: $VIDTORY_API_KEY" \
+      -F "file=@./image.png"
+    ```
+

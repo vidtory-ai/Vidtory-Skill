@@ -98,3 +98,19 @@ node vidtory-cli.js generate-image \
   --prompt "Conceptual design of a luxury perfume bottle, levitating over liquid gold ripples, dramatic high contrast studio lighting, logo text 'AURA'" \
   --aspectRatio 1:1 --resolution 2K &
 ```
+
+---
+
+## 🌐 Tài Liệu Tích Hợp API BAPI Trực Tiếp (Direct API Reference)
+
+Nếu mô hình cần thực hiện các cuộc gọi API HTTP trực tiếp thay vì thông qua CLI (ví dụ: dùng `curl` hoặc các thư viện request), bắt buộc tuân thủ:
+*   **Base URL**: `https://bapi.vidtory.net`
+*   **Header Xác Thực**: `x-api-key: <API_KEY>` (Tuyệt đối **KHÔNG** sử dụng `Authorization: Bearer`).
+*   **API Upload**: `POST /media/upload` (Tuyệt đối **KHÔNG** dùng `/upload`).
+*   **Ví dụ Curl**:
+    ```bash
+    curl -X POST "https://bapi.vidtory.net/media/upload" \
+      -H "x-api-key: $VIDTORY_API_KEY" \
+      -F "file=@./image.png"
+    ```
+
