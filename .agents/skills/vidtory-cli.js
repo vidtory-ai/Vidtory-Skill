@@ -135,6 +135,26 @@ function parseArgs(args) {
   return options;
 }
 
+// Verify that the uploaded URL is fully ready and returning 200 OK
+async function verifyUrlIsReady(url, maxRetries = 10, delayMs = 1000) {
+  console.log(`Verifying uploaded URL accessibility: ${url}...`);
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const res = await fetch(url, { method: 'HEAD' });
+      if (res.status === 200) {
+        console.log(`URL is fully accessible and ready (Status: 200)`);
+        return true;
+      }
+      process.stdout.write(`.`);
+    } catch (e) {
+      process.stdout.write(`x`);
+    }
+    await new Promise(resolve => setTimeout(resolve, delayMs));
+  }
+  console.log(`\nWarning: URL did not return 200 OK after verification. Proceeding anyway.`);
+  return false;
+}
+
 // Resolve any local file argument to a Vidtory BAPI Media ID / URL
 async function resolveMediaArg(val) {
   if (isLocalFile(val)) {
@@ -143,6 +163,8 @@ async function resolveMediaArg(val) {
     const mediaId = uploadRes.data.id;
     const mediaUrl = uploadRes.data.url;
     console.log(`Uploaded! ID: ${mediaId}, URL: ${mediaUrl}`);
+    // Wait for the URL to be fully propagated/active before passing to generative endpoints
+    await verifyUrlIsReady(mediaUrl);
     return mediaUrl; // We use URL as it's highly supported
   }
   return val;

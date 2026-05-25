@@ -68,6 +68,9 @@ Chúng ta sử dụng mô hình **`gemini-3.1-flash-image-preview`** vì khả n
     3.  Gọi lệnh `generate-video` truyền ảnh bắt đầu vào `--refImageUrl` và ảnh kết thúc vào `--refImageEndUrl`.
 *   **Template**: `"Sleek motion graphics transition, glowing vector lines connecting, smoothly morphing into a polished 3D gold metallic logo, modern high-tech corporate style, cinematic camera zoom, fluid particles"`
 
+> [!TIP]
+> **Đồng bộ tải ảnh lên (Auto-Upload & Propagation Check)**: Khi truyền đường dẫn tệp cục bộ (ví dụ: `--refImageUrl ./logo.png`), CLI sẽ tự động tải lên và **đợi phản hồi kiểm tra khả năng truy cập (Propagation Check) đạt trạng thái 200 OK** trước khi gửi yêu cầu sinh video. Điều này loại bỏ hoàn toàn việc model worker tải thiếu ảnh hoặc lệch ảnh gốc.
+
 ---
 
 ## Hướng Dẫn Gọi CLI (Ví dụ tạo 4 Concept Bao bì Nước hoa)

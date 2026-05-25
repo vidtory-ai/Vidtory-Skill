@@ -112,6 +112,9 @@ node vidtory-cli.js generate-video \
     3.  Gọi lệnh `generate-video` truyền ảnh bắt đầu vào `--refImageUrl` và ảnh kết thúc vào `--refImageEndUrl`.
 *   **Template**: `"Product unboxing transition, the packaging box smoothly opens to reveal the product inside, slow motion opening animation, realistic physics, soft studio lighting"`
 
+> [!TIP]
+> **Đồng bộ tải ảnh lên (Auto-Upload & Propagation Check)**: Khi bạn sử dụng ảnh sản phẩm cục bộ làm tham chiếu (ví dụ: `--refImageUrl ./toothbrush.png`), CLI sẽ tự động tải lên và **đợi phản hồi kiểm tra khả năng truy cập (Propagation Check) đạt trạng thái 200 OK** trước khi gửi yêu cầu sinh ảnh/video. Điều này loại bỏ hoàn toàn việc model worker tải thiếu ảnh hoặc lệch ảnh gốc.
+
 ### Bước 4: Hoàn thiện
 Kết hợp các tệp Video và tệp Audio đã tạo tương ứng để ghép thành thước phim hoàn chỉnh bằng các công cụ chỉnh sửa video (như CapCut, OpenCut, FFmpeg).
 

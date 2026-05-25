@@ -81,6 +81,9 @@ Chỉ cần thêm tham số `--soulId model_asian_lily`. Hệ thống sẽ tự 
     3.  Gọi lệnh `generate-video` truyền ảnh bắt đầu vào `--refImageUrl` và ảnh kết thúc vào `--refImageEndUrl`.
 *   **Template**: `"High-fashion outfit transformation video, model smoothly morphs from initial casual look into a stunning luxury silk dress, seamless clothing morphing transition, dynamic runway lights, realistic fabric physics"`
 
+> [!TIP]
+> **Đồng bộ tải ảnh lên (Auto-Upload & Propagation Check)**: Khi bạn sử dụng ảnh sản phẩm thô hoặc ảnh người mẫu cục bộ làm tham chiếu (ví dụ: `--refImageUrl ./blue_blazer.png`), CLI sẽ tự động tải lên và **đợi phản hồi kiểm tra khả năng truy cập (Propagation Check) đạt trạng thái 200 OK** trước khi gửi yêu cầu sinh ảnh/video. Điều này loại bỏ hoàn toàn việc model worker tải thiếu ảnh hoặc lệch ảnh gốc.
+
 ---
 
 ## Hướng Dẫn Gọi CLI (Ví dụ VTON áo Blazer lên người mẫu Lily)
