@@ -115,4 +115,70 @@ node /Users/brianle/Documents/Code/Vidtory/Vidtory-Skill/.agents/skills/vidtory-
 ### Bước 4: Hoàn thiện
 Kết hợp các tệp Video và tệp Audio đã tạo tương ứng để ghép thành thước phim hoàn chỉnh bằng các công cụ chỉnh sửa video (như CapCut, OpenCut, FFmpeg).
 
+---
+
+## 3. Quy Trình Tạo Thiết Kế Quảng Cáo Sáng Tạo (Creative Ads Image & Video)
+
+Phân hệ `vidtory-ecom` hỗ trợ thiết kế các định dạng quảng cáo sáng tạo (Creative Ads) có tỉ lệ chuyển đổi (CTR/CR) cao cho các nền tảng Facebook, TikTok, Instagram.
+
+### A. Định Dạng Ảnh Quảng Cáo Sáng Tạo (Creative Ads Images)
+
+Các định dạng ảnh quảng cáo có cấu trúc đặc trưng để giữ chân người dùng cuộn tin (stop-scrolling):
+
+1. **Before/After & Split-Screen Ads (Ảnh So Sánh Trước/Sau)**:
+   * **Mục tiêu**: Làm nổi bật sự đối lập trực quan giữa nỗi đau (chưa dùng sản phẩm) và kết quả mỹ mãn (sau khi dùng).
+   * **Cách thực hiện**: Sinh song song 2 ảnh khác nhau (sử dụng cùng góc chụp) và ghép lại:
+     * *Ảnh Before (Bên trái)*: Nền mờ, màu sắc trầm buồn/xám, sản phẩm cũ hỏng hoặc tình trạng lỗi.
+     * *Ảnh After (Bên phải)*: Nền sáng rực rỡ, sản phẩm mới cứng, sáng loáng hoặc kết quả da dẻ hoàn hảo.
+   * **Prompt Template (Before)**: `"Split-screen layout comparison, left side photo showing [painpoint-visual], dark muted color scheme, realistic textures, highly detailed, raw photorealistic"`
+   * **Prompt Template (After)**: `"Split-screen layout comparison, right side photo showing [solution-visual], bright sunny natural lighting, vibrant colors, premium glossy finish, highly detailed, photorealistic"`
+
+2. **Feature Callout Ads (Ảnh Chú Thích Tính Năng)**:
+   * **Mục tiêu**: Trình bày trực quan các công dụng vượt trội của sản phẩm trực tiếp trên ảnh bằng mũi tên/đường chỉ dẫn.
+   * **Cách thực hiện**: Sinh ảnh sản phẩm góc 3/4 nằm ở một bên hoặc chính giữa, chừa khoảng trống (negative space) rộng rãi ở hai bên trái/phải để ghi chữ chú thích.
+   * **Prompt Template**: `"Professional product advertising photo of [product-name], centered, vast empty solid [color] background, clean negative space on left and right for text overlay, studio catalog lighting, crisp details"`
+
+3. **Social Proof & Testimonial Ads (Ảnh Đánh Giá Khách Hàng)**:
+   * **Mục tiêu**: Tăng độ tin cậy bằng cách lồng nhận xét/số sao đánh giá của khách hàng.
+   * **Cách thực hiện**: Sinh ảnh sản phẩm được sử dụng trong bối cảnh thực tế (lifestyle), tạo góc nghiêng nghệ thuật, chừa không gian trống ở phía trên hoặc phía dưới để chèn ô đánh giá (chat bubble/rating block).
+   * **Prompt Template**: `"High-end lifestyle advertising shot of [product-name], placed on [surface], warm natural morning sunlight, shallow depth of field, blurred background, clean upper area for customer testimonial overlay, commercial aesthetic"`
+
+4. **Promo & Discount Banners (Ảnh Banner Khuyến Mãi)**:
+   * **Mục tiêu**: Thúc đẩy khách hàng click bằng các chương trình khuyến mãi/deal shock.
+   * **Cách thực hiện**: Thiết kế nhãn chữ khuyến mãi nổi bật bằng cách dùng dấu nháy đơn.
+   * **Prompt Template**: `"Creative commercial banner for [product-name], featuring a bright red circular tag on the corner with text '50% OFF' in bold white sans-serif typography, placed on a high-contrast modern studio background, dramatic spotlight"`
+
+---
+
+### B. Định Dạng Video Quảng Cáo Sáng Tạo (Creative Video Ads)
+
+Để sản xuất các video quảng cáo chuyển đổi cao (độ dài 15s - 30s), áp dụng các kịch bản và nhịp độ chuyển cảnh sau:
+
+1. **UGC Hook Ad (Video ngắn giữ chân 15s)**:
+   * *Cấu trúc*: **3s Hook** (Giật gân/Gây tò mò) -> **7s Demo/Solution** (Tính năng sản phẩm) -> **5s CTA & Offer** (Kêu gọi mua hàng & Khuyến mãi).
+   * *Chỉ dẫn tạo*:
+     * *Scene 1 (Hook - 3s)*: Tạo cảnh động trực diện hoặc vấn đề (Ví dụ: đổ nước ép lên giày vải để thử chống thấm).
+     * *Scene 2 (Demo - 7s)*: Cận cảnh nước trôi tuột đi không bám bẩn.
+     * *Scene 3 (CTA - 5s)*: Hiện hộp sản phẩm kèm logo nhãn hàng nổi bật.
+   * *Chiến lược CLI*: Gửi song song 3 yêu cầu sinh video ngắn tương ứng với 3 phân cảnh để tối ưu hóa thời gian xử lý của khách hàng.
+
+2. **ASMR Unboxing & Product Demo (Trải nghiệm âm thanh và thị giác)**:
+   * *Cấu trúc*: Tập trung vào chuyển động vật lý cực cận (extreme close-up) chân thực, kích thích giác quan người xem.
+   * *Mô tả chuyển động Veo*: Sử dụng các động từ mô tả vật lý sắc nét: `"peeling off the protective plastic film slowly"`, `"opening the magnetic cap with a satisfying click"`, `"squeezing the dropper to release a thick gel drop, slow motion"`.
+
+3. **Video Biến Hình / Trước & Sau (Before & After Transition Video)**:
+   * *Cách thực hiện*: Sử dụng cơ chế Keyframe Start + End Frame.
+     * *Start Frame (Before)*: Bề mặt chưa xử lý hoặc tình trạng cũ (ví dụ: màn hình điện thoại trầy xước và bám vân tay).
+     * *End Frame (After)*: Bề mặt sau khi dán cường lực/lau sạch (sáng loáng như mới).
+     * *Transition Prompt (Veo)*: `"A hand wiping a microfiber cloth across the scratched screen surface, leaving a clean crystal clear shiny stripe, smooth sweeping motion, realistic reflection"`
+     * *Lệnh chạy*:
+       ```bash
+       node .agents/skills/vidtory-cli.js generate-video \
+         --prompt "A hand wiping a microfiber cloth across the scratched screen surface, leaving a clean crystal clear shiny stripe" \
+         --refImageUrl ./screen_scratched.png \
+         --refImageEndUrl ./screen_clean.png \
+         --aspectRatio 9:16 --duration 5
+       ```
+
+
 
