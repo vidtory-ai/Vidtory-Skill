@@ -12,7 +12,7 @@ const { execSync } = require('child_process');
 
 const BASE_URL = 'https://bapi.vidtory.net';
 const API_KEY = process.env.VIDTORY_API_KEY;
-const CHARACTERS_FILE = '/Users/brianle/Documents/Code/Vidtory/Vidtory-Skill/.agents/skills/vidtory-soul-id/characters.json';
+const CHARACTERS_FILE = path.join(__dirname, '..', '.agents', 'skills', 'vidtory-soul-id', 'characters.json');
 const TMP_DIR = path.join(__dirname, 'tmp_tvc');
 const OUTPUT_DIR = __dirname;
 
