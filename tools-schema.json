@@ -1,0 +1,134 @@
+[
+  {
+    "name": "generate_image",
+    "description": "Generate high-fidelity advertising, packaging, or brand visuals using Vidtory BAPI (gemini-3.1-flash-image-preview). Supports aspect ratios, reference images, and local soulId models.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "Detailed text prompt describing the image concept, style, colors, and layout."
+        },
+        "aspectRatio": {
+          "type": "string",
+          "enum": ["1:1", "16:9", "9:16", "3:4", "4:3"],
+          "description": "Image aspect ratio. Defaults to 1:1."
+        },
+        "refImageUrl": {
+          "type": "string",
+          "description": "Local file path or URL of reference image to preserve structure/content."
+        },
+        "soulId": {
+          "type": "string",
+          "description": "Local character name (e.g. model_asian_lily) to preserve face consistency."
+        },
+        "resolution": {
+          "type": "string",
+          "enum": ["1K", "2K", "4K"],
+          "description": "Output resolution quality level."
+        }
+      },
+      "required": ["prompt"]
+    }
+  },
+  {
+    "name": "generate_video",
+    "description": "Generate dynamic unboxing, fashion catwalk, or transition advertising videos via Vidtory BAPI (veo-3.1-fast-generate-001).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "Detailed physical motion and descriptive prompt for the video."
+        },
+        "aspectRatio": {
+          "type": "string",
+          "enum": ["16:9", "9:16"],
+          "description": "Video aspect ratio. Defaults to 9:16."
+        },
+        "duration": {
+          "type": "integer",
+          "description": "Video duration in seconds. Max 5 seconds. Defaults to 5."
+        },
+        "refImageUrl": {
+          "type": "string",
+          "description": "Local file path or URL of the start keyframe reference image."
+        },
+        "refImageEndUrl": {
+          "type": "string",
+          "description": "Local file path or URL of the end keyframe reference image to interpolate between."
+        },
+        "soulId": {
+          "type": "string",
+          "description": "Local character name (e.g. model_asian_lily) to preserve face consistency."
+        }
+      },
+      "required": ["prompt"]
+    }
+  },
+  {
+    "name": "generate_audio",
+    "description": "Synthesize natural text-to-speech (TTS) voiceover using Vidtory BAPI (eleven_v3), optimized for Vietnamese and English.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "Text script to read out. For Vietnamese, speed is estimated at 2.5 words per second."
+        },
+        "voiceId": {
+          "type": "string",
+          "description": "ElevenLabs voice ID (e.g. Ngan: a3AkyqGG4v8Pg7SWQ0Y3, Tuan: 9EE00wK5qV6tPtpQIxvy)."
+        },
+        "speed": {
+          "type": "number",
+          "description": "Reading speed multiplier. Defaults to 1.0."
+        }
+      },
+      "required": ["prompt"]
+    }
+  },
+  {
+    "name": "voices_list",
+    "description": "List all supported voiceover actors and speakers on Vidtory BAPI, filtered by language.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "Two-letter language code (e.g., 'vi' for Vietnamese, 'en' for English)."
+        }
+      }
+    }
+  },
+  {
+    "name": "character_create",
+    "description": "Register and save a new AI character model locally to be used for Face-ID consistency with soulId.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique identifier name for the character (e.g., 'lily')."
+        },
+        "image": {
+          "type": "string",
+          "description": "Local file path or URL of the high-quality portrait reference image."
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Descriptive text representing the physical appearance of the model."
+        }
+      },
+      "required": ["name", "image", "prompt"]
+    }
+  },
+  {
+    "name": "character_list",
+    "description": "List all locally registered character models saved in the database.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+]
