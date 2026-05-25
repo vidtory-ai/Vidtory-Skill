@@ -108,3 +108,37 @@ node .agents/skills/vidtory-cli.js generate-video \
     *   Mux (ghép) audio + video của từng cảnh lẻ.
     *   Concatenate (nối) 12 phân cảnh lẻ thành chuỗi video 60s.
     *   Download nhạc nền BGM độc lập và lồng dưới toàn bộ video, điều chỉnh giảm âm lượng nhạc nền (-15dB) nhỏ hơn âm thoại thuyết minh để tránh bị cắt giật cục nhạc.
+
+---
+
+## 🌐 Tài Liệu Tích Hợp API BAPI Trực Tiếp (Direct API Reference)
+
+Nếu bạn hoặc các tác nhân AI (AI Agents) của bạn cần tương tác trực tiếp với Vidtory BAPI qua giao thức HTTP (ví dụ: dùng `curl` hoặc các thư viện request), hãy tuân thủ chính xác các cấu hình sau:
+
+### 1. Thông Tin Chung
+*   **Base URL**: `https://bapi.vidtory.net`
+*   **Header Xác Thực**: Sử dụng `x-api-key: <your-api-key>` (Tuyệt đối **KHÔNG** sử dụng `Authorization: Bearer`).
+
+### 2. API Tải Ảnh/Video Lên (Media Upload)
+*   **HTTP Method**: `POST`
+*   **Path**: `/media/upload` (Tuyệt đối **KHÔNG** dùng `/upload`).
+*   **Content-Type**: `multipart/form-data`
+*   **Body Parameters**:
+    *   `file` (Kiểu tệp tin, chứa dữ liệu ảnh/video cần upload).
+*   **Ví dụ Curl chính xác**:
+    ```bash
+    curl -X POST "https://bapi.vidtory.net/media/upload" \
+      -H "x-api-key: $VIDTORY_API_KEY" \
+      -F "file=@/mnt/user-data/uploads/1779716203802_image.png"
+    ```
+*   **Phản hồi mẫu thành công**:
+    ```json
+    {
+      "success": true,
+      "data": {
+        "id": "media-uuid",
+        "url": "https://b2b.vidtory.net/..."
+      }
+    }
+    ```
+
