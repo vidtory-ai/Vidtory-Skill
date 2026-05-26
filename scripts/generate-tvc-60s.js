@@ -265,15 +265,15 @@ async function main() {
     await downloadFile(videoUrl, videoPath);
   }
 
-  // Tải nhạc nền ambient
+  // Nhạc nền ambient cục bộ (nếu có)
+  // Người dùng có thể đặt tệp tin bgm.mp3 tại thư mục scripts/
+  const localBgmPath = path.join(__dirname, 'bgm.mp3');
   const bgmPath = path.join(TMP_DIR, 'bgm.mp3');
-  const bgmUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'; // Free royalty-free BGM
-  console.log('Tải nhạc nền BGM...');
-  try {
-    await downloadFile(bgmUrl, bgmPath);
-    console.log('Tải nhạc nền thành công.');
-  } catch (e) {
-    console.warn('Không tải được nhạc nền, TVC sẽ chỉ chứa giọng thoại thuyết minh.');
+  if (fs.existsSync(localBgmPath)) {
+    console.log('Tìm thấy nhạc nền bgm.mp3 cục bộ, sử dụng để trộn âm...');
+    fs.copyFileSync(localBgmPath, bgmPath);
+  } else {
+    console.warn('Không tìm thấy nhạc nền bgm.mp3 tại thư mục scripts/. TVC sẽ được sinh ra mà không có nhạc nền (chỉ có giọng đọc thoại thuyết minh).');
   }
 
   // Bước 4: Muxing & Concatenating bằng FFmpeg
