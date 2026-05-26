@@ -1,0 +1,19 @@
+{
+  "name": "@vidtory-ai/skill",
+  "version": "1.0.0",
+  "description": "Vidtory Creative AI Skills - Model Context Protocol (MCP) Server and CLI wrappers for Vidtory BAPI.",
+  "main": "vidtory-mcp-server.js",
+  "bin": {
+    "vidtory-mcp": "./vidtory-mcp-server.js"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "start": "node vidtory-mcp-server.js",
+    "test": "node scratch/test-mcp.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
