@@ -1,123 +1,93 @@
-# Vidtory Creative AI Skills
+# Vidtory Creative AI Skills — Cánh Tay Nối Dài Cho AI Agent Của Bạn
 
-Hệ thống **Vidtory Creative AI Skills** là bộ kỹ năng (Skills) chuyên nghiệp dành cho AI Agents, được tối ưu hóa để tương tác với **Vidtory BAPI**. Hệ thống giúp các doanh nghiệp, thương hiệu thời trang, và nhà bán hàng TMĐT tự động hóa quy trình thiết kế hình ảnh, sản xuất video unboxing, catwalk thời trang, và tạo các video quảng cáo TVC chất lượng cao với chi phí tối ưu.
+> 💡 **Anh em nào cần cánh tay nối dài cho Agent của mình thì thử dùng bộ Skill này nhé.** 
+> Hỗ trợ tự động hóa hoàn toàn quy trình sản xuất **Bulk Ads/Video**, thử nghiệm thoải mái các kịch bản **Hook 3s đầu, CTA, unboxing, catwalk** cho các chiến dịch TMĐT, Thương hiệu hoặc Tiếp thị liên kết (Affiliate).
 
----
-
-## 🚀 Cơ Chế Xử Lý Song Song Tối Ưu Thời Gian (Parallel Processing Strategy)
-
-Để mang lại trải nghiệm tốt nhất và tối ưu hóa thời gian chờ đợi của khách hàng, Vidtory Creative Skills áp dụng cơ chế **gửi hàng loạt yêu cầu song song (Parallel Request/Batching)**. 
-
-Thay vì sinh tuần tự từng ảnh hoặc video khiến quy trình thử-sai (trial-and-error) kéo dài và gây sốt ruột cho người dùng, cơ chế này khởi tạo đồng thời nhiều phương án thiết kế (concepts), nhiều góc chụp, góc quay, hoặc các sắc tộc/giới tính người mẫu khác nhau trong cùng một thời điểm. Chỉ sau một lần đợi duy nhất (dưới 10-15 giây), khách hàng sẽ có ngay một bộ sưu tập tùy chọn phong phú, chất lượng cao để so sánh và lựa chọn. Cách tiếp cận này giúp tối ưu hóa triệt để hiệu năng của Vidtory BAPI, đảm bảo khách hàng luôn nhận được giá trị tối đa và cảm thấy an tâm về chi phí sử dụng tài nguyên một cách minh bạch, hiệu quả nhất.
-
+Bộ kỹ năng (Skills) chuyên nghiệp này được thiết kế và tối ưu hóa riêng biệt để tương tác với **Vidtory BAPI**. Nó cho phép các AI Agents (như Claude Code, Cursor, Windsurf, Codex, v.v.) tự động gọi API sinh ảnh, video chất lượng cao và audio thuyết minh chỉ bằng các dòng lệnh đơn giản.
 
 ---
 
-## 📂 Cấu Trúc Hệ Thống Phân Hệ Nghiệp Vụ
+## 🚀 Các Use Cases Điển Hình (Thử Nghiệm Thoải Mái Bulk Ads/Video, Hook, CTA)
 
-Hệ thống được tái cơ cấu theo 3 phân hệ nghiệp vụ kinh doanh chính:
+### 1. 🧪 Thử Nghiệm Hàng Loạt Kịch Bản UGC Hook & CTA (Affiliate Creators)
+*   **Vấn đề**: Việc quay dựng thử-sai (A/B testing) nhiều kịch bản Hook 3s hoặc nút kêu gọi CTA rất mất thời gian.
+*   **Giải pháp**: Gửi đồng thời nhiều yêu cầu sinh video unboxing/hành động khác nhau và lồng tiếng nói thuyết minh tiếng Việt tương ứng. Nhờ **Cơ chế Xử lý Song song (Parallel Requests)**, bạn sẽ nhận được 5-10 phương án video Hook/CTA chỉ sau dưới 15 giây để đăng tải và đo lường hiệu quả.
+
+### 2. 👗 Thử Đồ Ảo (VTON) & Nhất Quán Khuôn Mặt Người Mẫu (Fashion Brands)
+*   Mặc thử quần áo phẳng lên dáng người mẫu ảo mà không làm méo mó, biến dạng phom dáng vải gốc (`Garment-Fit VTON`).
+*   Duy trì khuôn mặt người mẫu đồng nhất qua nhiều bối cảnh khác nhau (London street, minimal studio, cafe) bằng database nhân vật cục bộ (`characters.json`), không cần train LoRA tốn kém.
+
+### 3. 📦 Sinh Trọn Bộ Ảnh Sàn TMĐT Đồng Bộ (Amazon A+ / Shopify Listings)
+*   Sinh song song trọn bộ 5 ảnh sản phẩm (Ảnh nền trắng, Flatlay phụ kiện, Lifestyle bối cảnh thực tế, Extreme Close-up chất liệu) với góc chiếu sáng studio (`catalog studio lighting`) và chất liệu bệ đỡ đồng bộ hoàn hảo.
+
+### 4. 🎬 Quy Trình Tự Động Sản Xuất TVC 60s Hệ Keyframe
+*   Tự động lên Storyboard 12 cảnh, sinh song song 24 job (12 video, 12 audio thoại), tự động căn chỉnh thời lượng khớp khít theo tốc độ nói tiếng Việt chuẩn (2.5 từ/giây), tự động nối và lồng nhạc nền hoàn thiện qua FFmpeg.
+
+---
+
+## 📂 Cấu Trúc Hệ Thống
 
 ```
 Vidtory-Skill/
-├── README.md
-├── .gitignore
-├── skills-lock.json
+├── README.md                # Tài liệu hướng dẫn chung
+├── .claude/
+│   └── settings.json        # Cấu hình mở chặn mạng sandbox cho Claude Code
+├── tools-schema.json        # Định nghĩa JSON Schema (OpenAI/Codex Function Calling)
+├── vidtory-mcp-server.js    # Model Context Protocol (MCP) Server (Cursor/Windsurf)
 └── .agents/
     └── skills/
-        ├── vidtory-cli.js           # Shared CLI Core (Upload, TTS, Polling)
-        ├── vidtory-brandos/
-        │   └── SKILL.md             # Phân hệ Thương hiệu & Dịch vụ
-        ├── vidtory-fashion/
-        │   └── SKILL.md             # Phân hệ Thời trang & VTON
-        ├── vidtory-ecom/
-        │   └── SKILL.md             # Phân hệ Sàn TMĐT & Affiliate Video
-        └── vidtory-soul-id/
-            └── characters.json      # Database nhân vật đồng nhất khuôn mặt
-```
-
-### 1. 🏢 Phân hệ `vidtory-brandos` (Thương hiệu & Dịch vụ)
-*   **Mô hình chủ lực**: `gemini-3.1-flash-image-preview` (tối ưu hóa vẽ văn bản, logo, đường nét vector sắc sảo).
-*   **Tính năng cốt lõi**:
-    *   **Brand Kit Configuration**: Đồng bộ bảng màu thương hiệu (Color Palette) và phong cách mỹ thuật (isometric, flat art) chống lệch tông.
-    *   **Visual Metaphor System**: Quy đổi các dịch vụ vô hình (SaaS, Bảo hiểm, Tài chính) thành hình ảnh ẩn dụ 3D nghệ thuật.
-    *   **Typography Rule**: Bọc chữ hiển thị trên nhãn mác bao bì trong dấu nháy đơn (`'TEXT'`) giúp kết xuất chữ chuẩn xác 100%.
-
-### 2. 👗 Phân hệ `vidtory-fashion` (Thời trang & Người mẫu AI)
-*   **Mô hình chủ lực**: `/generative-core/image` kết hợp `sampleCharacterUrl` và `veo-3.1-fast-generate-001`.
-*   **Tính năng cốt lõi**:
-    *   **Garment-Fit VTON**: Thử trang phục phẳng lên dáng người mẫu AI mà không làm méo mó, biến dạng phom dáng vải gốc.
-    *   **Outfit Style Archetypes**: Công thức phối đồ và phụ kiện chuẩn stylist (Quiet Luxury, Streetwear, Workwear).
-    *   **Veo Physics**: Từ khóa điều hướng chuyển động vật lý của vải (độ rũ, tung bay tự nhiên) trong video catwalk.
-    *   **Face Consistency**: Giữ nhất quán khuôn mặt người mẫu qua database nhân vật cục bộ (`characters.json`).
-
-### 3. 🛒 Phân hệ `vidtory-ecom` (Sàn TMĐT & Video Affiliate)
-*   **Mô hình chủ lực**: `/generative-core/image` (batching tạo card), `/generative-core/video` (Veo), và `/generative-core/audio` (ElevenLabs).
-*   **Tính năng cốt lõi**:
-    *   **A+ Listing Sets**: Tạo trọn bộ ảnh sàn TMĐT đồng bộ góc chụp và hướng chiếu sáng studio.
-    *   **UGC Scripting Psychology**: Cấu trúc kịch bản UGC giữ chân người xem (Hook 3s -> Painpoint -> Solution -> CTA) kèm ánh xạ giọng đọc thích hợp.
-    *   **Timing Alignment**: Công thức đồng bộ độ dài ký tự thoại thuyết minh khớp khít thời lượng video (tốc độ đọc trung bình 2.5 từ/giây).
-    *   **No-BGM Rule**: Tuyệt đối không sinh nhạc nền vào các tệp phân cảnh lẻ để tránh vấp nhạc khi ghép nối video dài.
-
----
-
-## 🛠️ Hướng Dẫn CLI Xử Lý Core (`vidtory-cli.js`)
-
-Tập lệnh CLI dùng để kết nối trực tiếp với API của Vidtory.
-
-### Khai báo API Key:
-```bash
-export VIDTORY_API_KEY="your-api-key"
-```
-
-### Các Lệnh Gọi Chính:
-```bash
-# 1. Tạo nhân vật mới lưu cục bộ (Face-ID)
-node .agents/skills/vidtory-cli.js character-create \
-  --name "lily" \
-  --image ./lily_portrait.png \
-  --prompt "a beautiful asian female model in her 20s"
-
-# 2. Sinh ảnh thời trang đồng nhất khuôn mặt Lily
-node .agents/skills/vidtory-cli.js generate-image \
-  --prompt "High fashion portrait of model wearing a premium coat" \
-  --soulId "lily" \
-  --aspectRatio 3:4
-
-# 3. Sinh giọng đọc thuyết minh (TTS) tiếng Việt
-node .agents/skills/vidtory-cli.js generate-audio \
-  --prompt "Hộp quà mỹ phẩm cao cấp siêu xịn sò cho các nàng!" \
-  --voiceId "a3AkyqGG4v8Pg7SWQ0Y3" # Giọng đọc Ngan
-
-# 4. Sinh video unboxing (Veo)
-node .agents/skills/vidtory-cli.js generate-video \
-  --prompt "A close up of cosmetic jar being opened, slow motion" \
-  --refImageUrl ./cosmetic_jar.png \
-  --aspectRatio 9:16 --duration 5
+        ├── vidtory-cli.js   # CLI Core dùng chung
+        ├── vidtory-brandos/ # Phân hệ Thương hiệu & Dịch vụ (Gemini 3.1)
+        │   ├── SKILL.md     # Hướng dẫn chi tiết cho Agent
+        │   └── vidtory-cli.js
+        ├── vidtory-fashion/ # Phân hệ Thời trang & VTON (Veo & Face-ID)
+        │   ├── SKILL.md
+        │   └── vidtory-cli.js
+        └── vidtory-ecom/    # Phân hệ Sàn TMĐT & Affiliate Video
+            ├── SKILL.md
+            └── vidtory-cli.js
 ```
 
 ---
 
-## 🎬 Kiến Trúc Sản Xuất Video TVC 60s Tự Động
+## 🛠️ Hướng Dẫn Tích Hợp Cho AI Agents (3 Chuẩn Đóng Gói)
 
-Để sản xuất các video marketing dài có giá trị thương mại lớn (TVC, video unboxing 60s có lồng tiếng thuyết minh và nhạc nền), hệ thống sử dụng một script điều khiển tự động (`scratch/generate-tvc-60s.js`):
+### 1. Chuẩn `SKILL.md` (Cho Claude Code, Antigravity)
+AI Agent khi làm việc trong các thư mục phân hệ sẽ tự động đọc hiểu file `SKILL.md` và thực thi các câu lệnh CLI tương ứng.
+*   **Ví dụ gọi sinh ảnh thương hiệu**:
+    ```bash
+    node vidtory-cli.js generate-image --prompt "Professional perfume bottle design" --aspectRatio 1:1
+    ```
 
-1.  **Storyboard Planning**: Lên kịch bản gồm 12 phân cảnh ngắn (mỗi cảnh 5 giây).
-2.  **Parallel Requests**: Gửi đồng thời 24 API calls (12 video, 12 audio thoại) trong nền để tối ưu hóa thời gian xử lý.
-3.  **Timing Sync Engine**: Tự động đo đạc độ dài âm thanh và điều chỉnh khớp nối thời lượng video.
-4.  **FFmpeg Assembly**: 
-    *   Mux (ghép) audio + video của từng cảnh lẻ.
-    *   Concatenate (nối) 12 phân cảnh lẻ thành chuỗi video 60s.
-    *   Download nhạc nền BGM độc lập và lồng dưới toàn bộ video, điều chỉnh giảm âm lượng nhạc nền (-15dB) nhỏ hơn âm thoại thuyết minh để tránh bị cắt giật cục nhạc.
+### 2. Chuẩn MCP Server (Cho Cursor, Windsurf, Claude Desktop)
+Cấu hình MCP Server stdio zero-dependency giúp phơi bày các công cụ sinh media thành các Native Tools trực tiếp trong IDE của bạn.
+*   **Cấu hình MCP Settings**:
+    ```json
+    {
+      "mcpServers": {
+        "vidtory-creative": {
+          "command": "node",
+          "args": ["/path/to/Vidtory-Skill/vidtory-mcp-server.js"],
+          "env": {
+            "VIDTORY_API_KEY": "your-api-key"
+          }
+        }
+      }
+    }
+    ```
+
+### 3. Chuẩn JSON Schema (Cho Codex, LangChain, AutoGen)
+Sử dụng file định nghĩa mẫu **`tools-schema.json`** ở thư mục gốc để copy-paste trực tiếp cấu hình Function Calling vào mã nguồn Python/NodeJS của Agent của bạn.
 
 ---
 
 ## 🌐 Tài Liệu Tích Hợp API BAPI Trực Tiếp (Direct API Reference)
 
-Nếu bạn hoặc các tác nhân AI (AI Agents) của bạn cần tương tác trực tiếp với Vidtory BAPI qua giao thức HTTP (ví dụ: dùng `curl` hoặc các thư viện request), hãy tuân thủ chính xác các cấu hình sau:
+Nếu bạn hoặc các tác nhân AI của bạn cần tương tác trực tiếp với Vidtory BAPI qua giao thức HTTP (ví dụ: dùng `curl`), hãy tuân thủ cấu hình sau:
 
 ### 1. Thông Tin Chung
 *   **Base URL**: `https://bapi.vidtory.net`
-*   **Header Xác Thực**: Sử dụng `x-api-key: <your-api-key>` (Tuyệt đối **KHÔNG** sử dụng `Authorization: Bearer`).
+*   **Header Xác Thực**: `x-api-key: <your-api-key>` (Tuyệt đối **KHÔNG** sử dụng `Authorization: Bearer`).
 
 ### 2. API Tải Ảnh/Video Lên (Media Upload)
 *   **HTTP Method**: `POST`
@@ -125,11 +95,11 @@ Nếu bạn hoặc các tác nhân AI (AI Agents) của bạn cần tương tác
 *   **Content-Type**: `multipart/form-data`
 *   **Body Parameters**:
     *   `file` (Kiểu tệp tin, chứa dữ liệu ảnh/video cần upload).
-*   **Ví dụ Curl chính xác**:
+*   **Ví dụ Curl**:
     ```bash
     curl -X POST "https://bapi.vidtory.net/media/upload" \
       -H "x-api-key: $VIDTORY_API_KEY" \
-      -F "file=@/mnt/user-data/uploads/1779716203802_image.png"
+      -F "file=@/mnt/user-data/uploads/image.png"
     ```
 *   **Phản hồi mẫu thành công**:
     ```json
@@ -141,4 +111,3 @@ Nếu bạn hoặc các tác nhân AI (AI Agents) của bạn cần tương tác
       }
     }
     ```
-
